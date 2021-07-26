@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<title>login page</title>
+<script>
+function myFunction() {
+  var x = document.getElementById("password");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+}
+</script>
+<style>
+
+</style>
+
+
+    <div class="p-2 bg-secondary col-lg-4" style="float:right;">
+    <form class="form-horizontal" method="post" action="" >
+        {% csrf_token %}
+        <div class="form-group">
+            <div class="col-sm-8">
+            email:<input type="text" class="form-control" id="username" aria-describedby="userlHelp" placeholder="Enter username" name="username">
+             </div>
+
+             <div class="col-sm-8">
+            password:<input type="password" class="form-control" id="password"  placeholder="Enter password" name="password">
+                 <input type="checkbox" onclick="myFunction()">Show Password
+            </div>
+        </div>
+        <div style="float-center" class="col-sm-8">
+          <button type = "submit" class="btn btn-success" name="btn">forget</button>
+        <button type="submit" class="btn btn-success" name="btn1">login</button>
+
+        </div>
+        </form>
+        {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-info">
+            {{ message }}
+        </div>
+        {% endfor %}
+        {% endif %}
+    </div>
+
+{% endblock %}

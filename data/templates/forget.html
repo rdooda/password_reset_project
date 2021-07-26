@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="p-2 bg-secondary col-lg-4" style="float:right;">
+    <form class="form form-horizontal" method="post" action="" >
+        {% csrf_token %}
+        <h4>forget password</h4>
+        {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-info">
+            {{ message }}
+        </div>
+        {% endfor %}
+        {% endif %}
+        <div class="form-group">
+            <div class="col-sm-8">
+            enter your username:<input type="text" class="form-control" id="username"  placeholder="Enter username" name="username" />
+            </div>
+        </div>
+        <div style="float-center" class="col-sm-8">
+            <button type="submit" class="btn btn-success" name="btn1">submit</button>
+        </div>
+     </form>
+</div>
+{% endblock %}

@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<title>Register page</title>
+
+<div class="p-2 bg-secondary col-lg-4" style="float:right;" >
+<form class="form-horizontal" method="post" action="" >
+        {% csrf_token %}
+        <div class="form-group">
+            <div class="col-sm-8">
+            First name:<input type="text" class="form-control" id="firstname" aria-describedby="nameHelp" placeholder="Enter first name" name="first_name">
+                </div>
+         </div>
+        <div class="form-group">
+            <div class="col-sm-8">
+            Last name:<input type="text" class="form-control" id="lastname" aria-describedby="nameHelp" placeholder="Enter last name" name="last_name" >
+            </div>
+         </div>
+         <div class="form-group">
+             <div class="col-sm-8">
+            email:<input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email" name="email">
+             </div>
+         </div>
+         <div class="form-group">
+            <div class="col-sm-8">
+            Username:<input type="text" class="form-control" id="username"  placeholder="Enter username" name="username">
+            </div>
+         </div>
+         <div class="form-group">
+            <div class="col-sm-8">
+            password:<input type="password" class="form-control" id="password"  placeholder="Enter password" name="password">
+            </div>
+         </div>
+        <div style="float-center" class="col-sm-8">
+         <button type="submit" class="btn btn-success"  name="reg" >Register</button>
+        </div>
+</form>
+    {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-info">
+            {{ message }}
+        </div>
+        {% endfor %}
+        {% endif %}
+</div>
+
+{% endblock %}
